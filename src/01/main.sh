@@ -9,7 +9,7 @@ c_file=$4
 name_file=$5
 size=$6
 
-function check_directory {
+check_directory() {
     if ! [ -d "$1" ]; then
         echo "Директории не существует!"
     else
@@ -17,7 +17,7 @@ function check_directory {
     fi
 }
 
-function check_parametr {
+check_parametr() {
   if [ -z "$c_dir" ] || ! [ "$c_dir" =~ ^[1-9]$|^10$ ]
   then
     echo "Второй параметр должен быть числом!"
