@@ -7,7 +7,7 @@ The russian version of the task can be found in the repository.
 
 ## Contents
 
-1. [Chapter I](#chapter-i) 
+1. [Chapter I](#chapter-i) \
     1.1. [GoAccess](#goaccess) \
     1.2. [Prometheus](#prometheus) \
     1.3. [Grafana](#grafana)
