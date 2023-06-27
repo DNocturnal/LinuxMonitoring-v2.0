@@ -1,11 +1,5 @@
 #!/bin/bash
 
-#in terminal goaccess:
-# combined format: %h %^[%d:%t %^] "%r" %s %b
-# date: %d/%b/%Y
-# time: %H:%M:%S
-
-
 if [ $1 -ne 1 ]; then 
  echo -e '\033[35mError! Input './main.sh 1', the three remaining log files will be generated automatically! '
  exit 1
