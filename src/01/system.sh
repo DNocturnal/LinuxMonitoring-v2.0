@@ -1,3 +1,4 @@
+#!/bin/bash
 path=$1
 c_dir=$2
 name_dir=$3
