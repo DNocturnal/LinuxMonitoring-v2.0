@@ -8,6 +8,14 @@
 
 ## Get Log   
 #
-### *goaccess -f access_1.log*
+### Generate in terminal:
+
+### - combined format: %h %^[%d:%t %^] "%r" %s %b
+### - date: %d/%b/%Y
+### - time: %H:%M:%S
+
+### Generate html:
+
+### sudo goaccess access*.log --log-format=COMBINED --real-time-html -o all_stats.html
 
 
