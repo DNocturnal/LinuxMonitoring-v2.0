@@ -3,7 +3,7 @@
 # 2xx - ok, created, 
 # 4xx - bad request, unauthorized, forbidden, not found, 
 # 5xx - internal server error, not implemented, bad gateway, service unavailable
-# combined format: "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\""
+# combined format goaccess: %h %^[%d:%t %^] "%r" %s %b 
 
 if [ $# -gt 0 ]; then 
     echo -e '\033[35mError! Input './main.sh''
@@ -48,7 +48,7 @@ create_log() {
             local current_date=${date[$((j-1))]}
             local log="$ip - - [$date] \"$method $url HTTP/1.1\" $code 0 \"-\" \"$user_agent\""
              
-            echo $log >> access_log$j.log
+            echo $log >> access_$j.log
         done
     done
 }
