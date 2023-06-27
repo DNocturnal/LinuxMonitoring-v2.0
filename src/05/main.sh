@@ -24,7 +24,7 @@ uniq_ip() {
 }
 
 uniq_ip_error() {
-    awk '$9 ~ /^4/ || $9 ~ /^5/ {print $1}' "${files}" | sort -u >> IP_Select_Error.log
+    awk '$9 ~ /^4/ || $9 ~ /^5/ {print $1}' "${files[@]}" | sort -u >> IP_Select_Error.log
 } 
 
 case "$1" in
