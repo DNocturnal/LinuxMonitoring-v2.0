@@ -4,6 +4,12 @@
 # 4xx - bad request, unauthorized, forbidden, not found, 
 # 5xx - internal server error, not implemented, bad gateway, service unavailable
 # combined format: "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\""
+
+if [ $# -gt 0 ]; then 
+    echo -e '\033[35mError! Input './main.sh''
+    exit 1
+fi
+
 http_status_code=( 200 201 400 401 403 404 500 501 502 503 )
 methods=( GET POST PUT PATCH DELETE )
 agents=( "Mozilla" "Google Chrome" "Opera" "Safari" "Internet Exploer" "Microsoft Edge" "Crawler and bot" "Library and net tool" )
@@ -48,3 +54,8 @@ create_log() {
 }
 
 create_log
+
+# for i in {1..5}
+# do
+#     rm -rf access_log$i.log
+# done 
