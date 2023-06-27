@@ -1,9 +1,6 @@
 #!/bin/bash
 
-for i in {1..5}
-do
-   rm -rf access_$i.log Request_Code_$i.log Select_Error_$i.log Unique_IP_$i.log IP_Select_Error_$i.log
-done
+rm -rf access*.log Request_Code.log Select_Error.log Unique_IP.log IP_Select_Error.log
 
 if [ $# -ne 1 ] || [ $1 -gt 4 ] || [ $1 -lt 1 ]; then 
     echo -e '\033[35mError! Input './main.sh x' 
@@ -12,42 +9,32 @@ if [ $# -ne 1 ] || [ $1 -gt 4 ] || [ $1 -lt 1 ]; then
 fi
 
 ./../04/main.sh
+files=($(find . -type f -name '*access*' -printf '%p\n'))
 
 request_code() {
-    for i in {1..5}
-    do
-        awk '{print $0}' access_$i.log | sort -k9 >> Request_Code_$i.log
-    done 
+    awk '{print $0}' "${files[@]}" | sort -k9 >> Request_Code.log
 }
 
 select_error() {
-    for i in {1..5}
-    do
-        awk '$9 ~ /^4/ || $9 ~ /^5/ {print $0}' access_$i.log >> Select_Error_$i.log
-    done 
+    awk '$9 ~ /^4/ || $9 ~ /^5/ {print $0}' "${files[@]}" >> Select_Error.log
 }
 
 uniq_ip() {
-    for i in {1..5}
-    do
-        awk ' {print $1}' access_$i.log | sort -u >> Unique_IP_$i.log
-    done 
+    awk '{print $1}' "${files[@]}" | sort -u >> Unique_IP.log
 }
 
 uniq_ip_error() {
-    for i in {1..5}
-    do
-        awk '$9 ~ /^4/ || $9 ~ /^5/ {print $1}' access_$i.log | sort -u >> IP_Select_Error_$i.log
-    done 
+    awk '$9 ~ /^4/ || $9 ~ /^5/ {print $1}' "${files}" | sort -u >> IP_Select_Error.log
 } 
 
-if [ $1 -eq 1 ]; then
-    request_code
-elif [ $1 -eq 2 ]; then 
-    uniq_ip
-elif [ $1 -eq 3 ]; then 
-    select_error
-elif [ $1 -eq 4 ]; then 
-    uniq_ip_error
-fi
+case "$1" in
+1)
+    request_code ;;
+2)
+    uniq_ip ;;
+3)
+    select_error ;;
+4)
+    uniq_ip_error ;;
+esac
 
