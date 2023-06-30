@@ -80,7 +80,7 @@ system() {
               free_space=$((system_size - size_kb))
               if (( $free_space < 1048576 ))
               then
-                  echo "На диске осталось меньше 1 Гб свободного места!"
+                  echo "\033[35mНа диске осталось меньше 1 Гб свободного места!"
                   exit 0
               fi
               fallocate -l $size $fname  2>/dev/null
@@ -98,6 +98,6 @@ system() {
 
 check_directory
 system
-echo "Скрипт завершен!" >> $log_dir
+echo -e "\033[35mСкрипт завершен!" >> $log_dir
 exit 0
 
