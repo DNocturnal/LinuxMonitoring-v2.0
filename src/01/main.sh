@@ -21,6 +21,9 @@ check_directory() {
 }
 
 check_parametr() {
+  # if [[ $# -ne 6 ]]; then 
+  #   echo -e "\033[35mВведите 6 параметров!"
+  # fi
   if [[ ! "$c_dir" =~ ^[1-9]|[1][0]+$ ]]; then
     echo -e "\033[35mВторой параметр должен быть числом!"
     exit 1
@@ -37,7 +40,7 @@ check_parametr() {
     echo -e "\033[35mПятый параметр должен содержать имя файла и расширение, не более 7 и 3 латинских символов соответственно!"
     exit 1
   fi
-  if [[ ! "$size" =~ ^([1-9]|[1-9][0-9]|100)(Kb|kb|)$ ]]; then
+  if [[ ! "$size" =~ ^([1-9]|[1-9][0-9]|100)(Kb|kb| Mb|mb)$ ]]; then
     echo -e "\033[35mШестой параметр должен быть числом от 1 до 100!"
     exit 1
   fi
@@ -80,7 +83,7 @@ system() {
                   echo "На диске осталось меньше 1 Гб свободного места!"
                   exit 0
               fi
-              fallocate -l $size $fname
+              fallocate -l $size $fname  2>/dev/null
               echo "$path/${name_dir}_${datefile}/$fname $(date)  $size" >> $log_dir
               firstchar=${file_name:0:1}
               fname="$firstchar$fname"
@@ -89,11 +92,12 @@ system() {
       name_dir="$name_dir$lastchar"
     
   done
-  echo "Скрипт завершен!"
+  
 
 }
 
 check_directory
 system
-
+echo "Скрипт завершен!" >> $log_dir
 exit 0
+
