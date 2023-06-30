@@ -57,7 +57,7 @@ system() {
 
   for (( ; size_2 < 4; size_2++ ))
   do
-      name="$firstchar$name"
+      name="$firstchar$name_file"
   done
   ext=$(awk -F'.' '{print $2}' <<< "$name_file")
   file_name="${name}_${datefile}.${ext}"
