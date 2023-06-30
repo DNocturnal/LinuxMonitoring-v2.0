@@ -76,20 +76,20 @@ system() {
           fname=$file_name
           for (( i = 0; i < $c_file; i++ ))
           do
-              system_size=$(df -k | grep "/$" | awk '{print $4}')
+              system_size=$(df -k | grep "/$" | awk '{print $4}' )
               free_space=$((system_size - size_kb))
               if (( $free_space < 1048576 ))
               then
                   echo "\033[35mНа диске осталось меньше 1 Гб свободного места!"
                   exit 0
               fi
-              fallocate -l $size $fname  2>/dev/null
+              fallocate -l $size $fname  
               echo "$path/${name_dir}_${datefile}/$fname $(date)  $size" >> $log_dir
               firstchar=${file_name:0:1}
               fname="$firstchar$fname"
           done
       cd ..
-      name_dir="$name_dir$lastchar"
+      name_dir="$name_dir$lastchar" 
     
   done
   
@@ -97,7 +97,7 @@ system() {
 }
 
 check_directory
-system
+system 2>/dev/null
 echo -e "\033[35mСкрипт завершен!" >> $log_dir
 exit 0
 
