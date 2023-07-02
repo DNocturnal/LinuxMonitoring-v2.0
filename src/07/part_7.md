@@ -17,7 +17,6 @@
 ![07_00](../../misc/images/07_00.png)
 ## RAM
 ![07_01](../../misc/images/07_RAM01.png)
-![07_01](../../misc/images/07_RAM02.png)
 ## I/O Operations
 ![07_02](../../misc/images/07_IO01.png)
 ![07_02](../../misc/images/07_IO02.png)
@@ -25,3 +24,9 @@
 ![07_03](../../misc/images/07_FS01.png)
 ## CPU
 ![07_04](../../misc/images/07_CPU01.png)
+
+# Нагрузка после выполенения команды stress(15:45-15:50)
+![07_05](../../misc/images/07_stress.png)
+
+# Нагрузка после выполнения part 1
+![07_06](../../misc/images/07_part1.png)

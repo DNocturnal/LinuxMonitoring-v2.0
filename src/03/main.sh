@@ -8,9 +8,9 @@ log() {
         while read line; do
             path=$(echo $line | awk '{print $1}' )
             if [ -d $path ]; then
-                 rm -r $path
+                 rm -rf $path
             else
-                 rm $path
+                 rm -rf $path
             fi
         done < $a
     else
