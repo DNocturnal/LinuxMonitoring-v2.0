@@ -98,6 +98,6 @@ system() {
 
 check_directory
 system 2>/dev/null
-echo -e "\033[35mСкрипт завершен!" >> $log_dir
+echo  "Скрипт завершен!" >> $log_dir
 exit 0
 
