@@ -168,7 +168,7 @@ Open the web interface of the utility on the local machine.
 
 ##### Add to the **Grafana** dashboard a display of CPU, available RAM, free space and the number of I/O operations on the hard disk.
 
-##### Run your bash script from [Part 2](#part-2-file-system-clogging)
+##### Run your bash script from [Part 1](#part-1-file-generator)
 ##### Check the hard disk load (disk space and read/write operations)
 
 ##### Install the **stress** utility and run the following command `stress -c 2 -i 1 -m 1 --vm-bytes 32M -t 10s`
