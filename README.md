@@ -23,11 +23,11 @@ Make a log file with data on all created folders and files (full path, creation 
 Write a bash script. The script is run with 3 parameters. An example of running a script: \
 `main.sh az az.az 3Mb`
 
-**Parameter 1** is a list of English alphabet letters used in folder names (no more than 7 characters). \
-**Parameter 2** the list of English alphabet letters used in the file name and extension (no more than 7 characters for the name, no more than 3 characters for the extension). \
-**Parameter 3** - is the file size (in Megabytes, but not more than 100).
+**1** is a list of English alphabet letters used in folder names. \
+**2** the list of English alphabet letters used in the file name and extension. \
+**3** - is the file size (in Megabytes, but not more than 100).
 
-When running the script, file folders must be created in different (any, except paths containing **bin** or **sbin**) locations on the file system.
+When running the script, file folders must be created in different locations on the file system.
 Make a log file with data on all created folders and files (full path, creation date, file size).
 
 ## 3. Cleaning the system
